@@ -23,6 +23,8 @@ import org.isoron.uhabits.R;
 import org.isoron.uhabits.models.Habit;
 import org.isoron.uhabits.views.HabitScoreView;
 
+import java.util.LinkedList;
+
 public class ScoreWidgetProvider extends  BaseWidgetProvider
 {
     @Override

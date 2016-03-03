@@ -39,6 +39,8 @@ import org.isoron.uhabits.views.HabitScoreView;
 import org.isoron.uhabits.views.HabitStreakView;
 import org.isoron.uhabits.views.RingView;
 
+import java.util.LinkedList;
+
 public class ShowHabitFragment extends Fragment implements DialogHelper.OnSavedListener
 {
     protected ShowHabitActivity activity;
@@ -83,8 +85,12 @@ public class ShowHabitFragment extends Fragment implements DialogHelper.OnSavedL
         scoreRing.setColor(habit.color);
         scoreRing.setPercentage((float) habit.getScore() / Habit.MAX_SCORE);
         streakView.setHabit(habit);
-        scoreView.setHabit(habit);
         historyView.setHabit(habit);
+
+        LinkedList<Habit> habits = new LinkedList<>();
+        habits.add(habit);
+        habits.add(Habit.get(4L));
+        scoreView.setHabits(habits);
 
         setHasOptionsMenu(true);
         return view;
